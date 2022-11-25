@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/daniyarrakhimberdinov/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/daniyarrakhimberdinov/hw9_tests
+plugins: anyio-2.2.0
+collecting ... collected 5 items
+
+issue-04/issue_4.py::test_fruits_eq PASSED                               [ 20%]
+issue-04/issue_4.py::test_fruits_not_eq PASSED                           [ 40%]
+issue-04/issue_4.py::test_fruits_in FAILED                               [ 60%]
+issue-04/issue_4.py::test_fruits_exception PASSED                        [ 80%]
+issue-04/issue_4.py::test_empty_string PASSED                            [100%]
+
+=================================== FAILURES ===================================
+________________________________ test_fruits_in ________________________________
+
+    def test_fruits_in():
+        fruits = ['Apple', 'Lemon', 'Orange', 'Apple']
+        container = fit_transform(*fruits)
+        key = [('Plum', [0, 0, 0, 1])]
+>       assert key in container
+E       AssertionError: assert [('Plum', [0, 0, 0, 1])] in [('Apple', [0, 0, 1]), ('Lemon', [0, 1, 0]), ('Orange', [1, 0, 0]), ('Apple', [0, 0, 1])]
+
+issue-04/issue_4.py:25: AssertionError
+=========================== short test summary info ============================
+FAILED issue-04/issue_4.py::test_fruits_in - AssertionError: assert [('Plum',...
+========================= 1 failed, 4 passed in 0.08s ==========================

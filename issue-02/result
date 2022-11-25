@@ -1,0 +1,64 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.8.8, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /Users/daniyarrakhimberdinov/opt/anaconda3/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/daniyarrakhimberdinov/hw9_tests
+plugins: anyio-2.2.0
+collecting ... collected 3 items
+
+issue-02/issue_2.py::test_deocde[- . ... --TEST] PASSED                  [ 33%]
+issue-02/issue_2.py::test_deocde[25-..--- .....] FAILED                  [ 66%]
+issue-02/issue_2.py::test_deocde[---|-.--OK] FAILED                      [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_deocde[25-..--- .....] __________________________
+
+test_input_morse = '25', expected = '..--- .....'
+
+    @pytest.mark.parametrize("test_input_morse,expected",
+                             [('- . ... -', 'TEST'), ("25", '..--- .....'),
+                              ("---|-.-", 'OK')])
+    def test_deocde(test_input_morse, expected):
+>       assert decode(test_input_morse) == expected
+
+issue-02/issue_2.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+morse.py:42: in decode
+    decoded_letters = [
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7fd3b0946ca0>
+
+    decoded_letters = [
+>       MORSE_TO_LETTER[letter] for letter in morse_message.split()
+    ]
+E   KeyError: '25'
+
+morse.py:43: KeyError
+___________________________ test_deocde[---|-.--OK] ____________________________
+
+test_input_morse = '---|-.-', expected = 'OK'
+
+    @pytest.mark.parametrize("test_input_morse,expected",
+                             [('- . ... -', 'TEST'), ("25", '..--- .....'),
+                              ("---|-.-", 'OK')])
+    def test_deocde(test_input_morse, expected):
+>       assert decode(test_input_morse) == expected
+
+issue-02/issue_2.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+morse.py:42: in decode
+    decoded_letters = [
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7fd3b093c0d0>
+
+    decoded_letters = [
+>       MORSE_TO_LETTER[letter] for letter in morse_message.split()
+    ]
+E   KeyError: '---|-.-'
+
+morse.py:43: KeyError
+=========================== short test summary info ============================
+FAILED issue-02/issue_2.py::test_deocde[25-..--- .....] - KeyError: '25'
+FAILED issue-02/issue_2.py::test_deocde[---|-.--OK] - KeyError: '---|-.-'
+========================= 2 failed, 1 passed in 0.09s ==========================
