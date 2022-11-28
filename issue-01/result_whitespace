@@ -1,0 +1,43 @@
+Trying:
+    encode('TEST')
+Expecting:
+    '- . ... -'
+ok
+Trying:
+    encode('TEST')
+Expecting:
+    '- .        ...    -'
+ok
+Trying:
+    encode(123)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: 'int' object is not iterable
+ok
+Trying:
+    encode('TEXT') # doctest: +ELLIPSIS
+Expecting:
+    '- . ... -'
+ok
+Trying:
+    encode('MOM')
+Expecting:
+    '- . ... -'
+**********************************************************************
+File "issue-01/issue_1.py", line 41, in issue_1.encode
+Failed example:
+    encode('MOM')
+Expected:
+    '- . ... -'
+Got:
+    '-- --- --'
+2 items had no tests:
+    issue_1
+    issue_1.decode
+**********************************************************************
+1 items had failures:
+   1 of   5 in issue_1.encode
+5 tests in 3 items.
+4 passed and 1 failed.
+***Test Failed*** 1 failures.

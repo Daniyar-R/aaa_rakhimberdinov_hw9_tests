@@ -1,0 +1,20 @@
+**********************************************************************
+File "issue-01/issue_1.py", line 33, in issue_1.encode
+Failed example:
+    encode('TEST')
+Expected:
+    '- .        ...    -'
+Got:
+    '- . ... -'
+**********************************************************************
+File "issue-01/issue_1.py", line 41, in issue_1.encode
+Failed example:
+    encode('MOM')
+Expected:
+    '- . ... -'
+Got:
+    '-- --- --'
+**********************************************************************
+1 items had failures:
+   2 of   5 in issue_1.encode
+***Test Failed*** 2 failures.
